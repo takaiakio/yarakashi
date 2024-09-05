@@ -37,7 +37,7 @@ def export_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="near_miss_data.csv"'
 
-    writer = csv.writer(response)
+    writer = csv.writer(response, encoding='utf-8')
     writer.writerow(['Title', 'Description', 'Encounters', 'Prevention'])
 
     for near_miss in NearMiss.objects.all():
