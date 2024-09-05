@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ヒヤリハット情報詳細</title>
+</head>
+<body>
+    <h1>{{ near_miss.title }}</h1>
+    <p>遭遇場面: {{ near_miss.description }}</p>
+    <p>遭遇回数: {{ near_miss.encounters }}</p>
+    <p>ミス回避: {{ near_miss.prevention }}</p>
+    <a href="{% url 'edit_near_miss' near_miss.pk %}">編集</a>
+    <a href="{% url 'list_near_miss' %}">戻る</a>
+</body>
+</html>

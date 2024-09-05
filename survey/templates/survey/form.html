@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ヒヤリハット情報フォーム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            color: #0056b3;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-container p {
+            font-size: 16px;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-container button {
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #004494;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>ヒヤリハット情報フォーム</h1>
+        <p>
+            Waf工程作業にて、ともするとミスに繋がるやもしれぬ、いわゆるヒヤリハット体験について、以下設問に回答した後、送信してください。<br>
+            定義としては、人の認知における「情報の受容」→「判断」→「行動」サイクルに「つらさ」や「紛らわしさ」を伴うもの全般です。<br>
+            例えば、生産数に追われ、注意散漫な状態と結びつけばトラブル発生となる可能性のある状況に遭遇することです。
+        </p>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_title">① 題名を入力してください:</label>
+            {{ form.title }}
+            <label for="id_description">② 遭遇場面を詳しく記述してください:</label>
+            {{ form.description }}
+            <label for="id_encounters">③ これまでに何度遭遇しましたか:</label>
+            {{ form.encounters }}
+            <label for="id_prevention">④ 今回は何がミス回避に繋がったと思いますか:</label>
+            {{ form.prevention }}
+            <button type="submit">送信</button>
+        </form>
+    </div>
+</body>
+</html>

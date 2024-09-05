@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>削除確認</title>
+</head>
+<body>
+    <h1>削除確認</h1>
+    <p>本当に「{{ near_miss.title }}」を削除してもよろしいですか？</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">削除する</button>
+        <a href="{% url 'list_near_miss' %}">キャンセル</a>
+    </form>
+</body>
+</html>
